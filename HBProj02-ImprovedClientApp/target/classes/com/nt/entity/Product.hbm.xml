@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<!-- <hibernate-mapping>
+    <class  name="com.nt.entity.Product"  table="PRODUCT" dynamic-insert="true"  >
+      o-r mapping
+      <id name="pid" column="PID">    singular Id Field cfg
+         <generator class="increment"/>
+      </id>
+     <property name="pname"  column="PNAME"/>
+     <property name="price"  column="PRICE"  />
+     <property name="qty"  column="QTY"/> 
+    </class>
+</hibernate-mapping> -->
+
+ <!-- <hibernate-mapping>
+    <class  name="com.nt.entity.Product"  table="PRODUCT" dynamic-insert="true"  >
+       o-r mapping
+      <id name="pid" >   
+          <column name="PID"/>
+         <generator class="increment"/> singular Id Field cfg 
+      </id>
+     <property name="pname">
+        <column name="PNAME"/>
+     </property>
+     <property name="price"   >
+        <column name="PRICE"/>
+     </property>
+     <property name="qty"  >
+          <column name="QTY"/>
+     </property> 
+    </class>
+</hibernate-mapping>  -->
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.Product"   dynamic-insert="true"  >
+       <!-- o-r mapping  -->
+      <id name="pid" >   
+         <generator class="increment"/> <!-- singular Id Field cfg --> 
+      </id>
+     <property name="pname"/>
+     <property name="price"   />
+     <property name="qty"  />
+    </class>
+</hibernate-mapping> 
+
