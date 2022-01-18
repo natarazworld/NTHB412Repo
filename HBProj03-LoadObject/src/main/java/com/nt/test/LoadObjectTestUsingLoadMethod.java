@@ -7,7 +7,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.nt.entity.Product;
 
-public class LoadObjectTestUsingGetMethod {
+public class LoadObjectTestUsingLoadMethod {
 
 	public static void main(String[] args) {
 		//Configutration obj
@@ -19,14 +19,13 @@ public class LoadObjectTestUsingGetMethod {
 		Session ses=factory.openSession();
 		try(factory;ses){  //try with resource
 			  //Load object using get(-,-) method
-			 Product prod=ses.get(Product.class, 1452);
-			 System.out.println(prod.getClass());
-			 if(prod==null)
-				 System.out.println("Product not found");
-			 else
-				 System.out.println(prod); 
+			 Product prod=ses.load(Product.class, 1422);
+			 System.out.println(prod.getClass()+"   "+prod.getClass().getSuperclass());
+			 System.out.println("---------------------");
+			 System.out.println(prod.getPid()+"  "+prod.getPname()+"  "+prod.getPrice()+"  "+prod.getQty());
 		}//try
 		catch(HibernateException he) {
+			System.out.println("Record not found");
 			he.printStackTrace();
 		}
 		
