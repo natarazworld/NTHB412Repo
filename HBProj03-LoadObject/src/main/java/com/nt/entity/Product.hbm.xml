@@ -4,7 +4,7 @@
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 	
 	<hibernate-mapping>
-	  <class name="com.nt.entity.Product"  table="PRODUCT">
+	  <class name="com.nt.entity.Product"  table="PRODUCT"  lazy="true">
 	     <id name="pid" column="PID" >
 	         <generator class="increment"/>
 	     </id>
