@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.Product"  table="PRODUCT"  lazy="true">
+    <id name="pid"  column="PID">
+       <generator class="increment"/>
+    </id>
+     <property name="pname"  column="PNAME"/>
+     <property name="price"  column="PRICE"/>
+     <property name="qty"  column="QTY"/> 
+    </class>
+    <sql-query name="GET_PRODS_BY_PRICE_RANGE"  >
+        <![CDATA[
+           SELECT * FROM PRODUCT WHERE PRICE>=? AND PRICE<=?
+        ]]>
+    </sql-query>
+    
+    <sql-query name="HIKE_PRICE_BY_PROD_NAME">
+        <![CDATA[
+                UPDATE PRODUCT SET PRICE=PRICE+? WHERE PNAME=?
+           ]]>
+    </sql-query>
+    
+    
+</hibernate-mapping>

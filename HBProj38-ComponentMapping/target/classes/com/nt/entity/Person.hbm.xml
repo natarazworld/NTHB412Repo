@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.Person"  table="HB_COMP_PERSON" >
+       <id name="pid"  column="PID">
+            <generator class="increment"/>
+       </id>
+       <property name="pname"  column="PNAME" length="20"/>
+       <property name="paddrs"  column="PADDRS" length="20"/>
+       <component name="details"  class="com.nt.entity.JobDetails">
+          <property name="desg" column="DESG" length="20"/>
+          <property name="company" column="COMPANY" length="20"/>
+          <property name="salary" column="SALARY"/>
+       </component>
+    </class>    
+</hibernate-mapping>
