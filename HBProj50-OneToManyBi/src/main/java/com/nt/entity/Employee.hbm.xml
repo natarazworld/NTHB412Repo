@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.Employee"  table="BI_OTM_EMPLOYEE"> 
+           <id name="empNo" column="EMPNO">
+                 <generator class="sequence">
+                    <param name="sequence_name">EID_SEQ</param>
+                    <param name="initial_value">1000</param>
+                    <param name="increment_size">1</param>
+                 </generator>
+             </id>
+             <property name="empName" column="EMPNAME" length="20"/>
+             <property name="empSalary"  column="EMPSALARY"/>
+             <many-to-one name="dept" class="com.nt.entity.Department" 
+                column="DEPT_ID" cascade="all"  lazy="no-proxy"  />    
+                      <!-- (all possible values are : false prory ,no-proxy  for lazy ) -->
+                      <!-- (No possibility of getting orphan records so "all-delete-orphan", "delete-orphan" is not 
+                          required for "cascade" attribute ) -->  
+    </class>                                                                                                                                 
+</hibernate-mapping>

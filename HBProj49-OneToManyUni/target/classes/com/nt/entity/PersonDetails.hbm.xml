@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.PersonDetails"  table="HB_PERSON_DETAILS_OTM"> 
+           <id name="pid" column="PID">
+                 <generator class="increment"/>
+             </id>
+             <property name="pname" column="PNAME" length="20"/>
+             <property name="paddrs"  column="PADDRS" length="20"/>      
+             <set name="phones"  cascade="all-delete-orphan"  lazy="extra" >
+                <key column="PERSON_ID"/> <!--  FK column -->
+                <one-to-many class="com.nt.entity.PhoneNumber"/> <!--  child class cfg -->
+             </set>
+    </class>    
+</hibernate-mapping>

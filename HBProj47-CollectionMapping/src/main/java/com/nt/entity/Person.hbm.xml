@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.PersonDetails"  table="HB_PER_DETAILS_COLLECTION"> 
+        <id name="pid"  column="PID">
+           <generator class="increment"/>
+        </id>
+        <property name="pname"  column="PNAME" length="15" />
+        <property name="paddrs" column="PADDRS"  length="15"/>
+        <list name="nickNames"  table="HB_PER_NICKNAMES_COLLECTION">
+           <key column="PERSON_ID"/>  <!-- FK column -->
+           <index column="INDX" type="int" length="3"/> <!-- index column> -->
+           <element column="NICKNAME"  type="string"/>  <!-- List collectin element value column -->
+        </list>
+        <bag  name="friends"  table="HB_PER_FRIENDS_COLLECTION">
+           <key column="PERSON_ID"/>
+           <element column="FRIEND" type="string"/> 
+        </bag>
+        <set name="contactNumbers"  table="HB_PER_CONTACT_COLLECTION">
+           <key column="PERSON_ID"/>
+           <element column="CONTACT_NUMBER"  type="long"/>
+        </set>
+        <map name="idDetails"  table="HB_PER_IDETAILS_COLLECTION">
+              <key column="PERSON_ID"/>
+              <index column="IDTYPE" type="string" length="10"/>
+              <element column="IDNUMBER" type="long" length="14"/>
+        </map>
+                   
+    </class>    
+</hibernate-mapping>

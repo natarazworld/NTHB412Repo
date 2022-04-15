@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.PhoneNumber"  table="HB_PHONE_NUMBER_OTM"> 
+             <id name="regNo" column="REGNO">
+                 <generator class="sequence">
+                    <param name="sequence_name">PID_SEQ1</param>
+                    <param name="initial_value">1000</param>
+                    <param name="increment_size">1</param>
+                 </generator>
+             </id>      
+             <property name="mobileNo"  column="MOBILENO"/>
+             <property name="numberType"  column="NUMBERTYPE" length="15"/>
+             <property name="provider" column="PROVIDER" length="15"/>
+    </class>    
+</hibernate-mapping>

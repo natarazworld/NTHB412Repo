@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class  name="com.nt.entity.Department"  table="BI_OTM_DEPARTMENT"> 
+             <id name="deptNo" column="DEPTNO">
+                 <generator class="increment"/>
+             </id>      
+             <property name="deptName"  column="DEPTNAME" length="15"/>
+             <property name="deptHead"  column="DEPTHEAD" length="15"/>
+             <set name="employees"  cascade="all-delete-orphan" lazy="extra" inverse="true">
+                <key column="DEPT_ID"/>
+                <one-to-many class="com.nt.entity.Employee"/>
+             </set>
+    </class>    
+</hibernate-mapping>
